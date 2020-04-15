@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="30dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="30dp"
+        android:layout_height="20dp"
+        android:background="@android:color/holo_orange_dark"
+        app:layout_constraintBottom_toBottomOf="@id/dsv_score"
+        app:layout_constraintRight_toLeftOf="@id/dsv_score"/>
+    <com.example.myapplication.DynamicScoreView
+        android:id="@+id/dsv_score"
+        android:layout_width="50dp"
+        android:layout_height="250dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginRight="30dp"
+        app:textSize="14sp"
+        app:textPadding="0dp"
+        app:chartWidth="5dp"
+        app:startColor="@android:color/holo_blue_light"
+        app:endColor="@android:color/holo_green_dark"
+        app:defaultColor="@android:color/darker_gray"
+        tools:background="@android:color/darker_gray"
+        />
+    <com.example.myapplication.DynamicScoreView
+        android:id="@+id/dsv_score2"
+        android:layout_width="50dp"
+        android:layout_height="250dp"
+        app:layout_constraintLeft_toRightOf="@id/dsv_score"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginRight="30dp"
+        app:textSize="14sp"
+        app:textPadding="40dp"
+        app:startColor="@android:color/holo_blue_light"
+        app:endColor="@android:color/holo_green_dark"
+        android:background="@android:color/darker_gray"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
