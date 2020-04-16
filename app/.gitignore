@@ -1,1 +1,11 @@
-/build
+# Created by .ignore support plugin (hsz.mobi)
+.idea/
+gradle/
+gradlew
+gradlew.bat
+local.properties
+.gradle/
+app/app.iml
+app/build/
+build/
+*.iml
