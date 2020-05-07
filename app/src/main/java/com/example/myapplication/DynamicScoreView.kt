@@ -21,8 +21,8 @@ class DynamicScoreView : View {
     private var startColor: Int = Color.GRAY
     private var textPadding: Int = 0
     private var chartWidth: Float = 5f
-    private var progress: Int = 0
-    private var max: Int = 0
+    private var progress: Float = 0.0f
+    private var max: Float = 0.0f
 
     private var text: String = ""
     private var paintText = Paint()
@@ -50,8 +50,8 @@ class DynamicScoreView : View {
         attributeSet?.apply {
             val typeArray =
                 context.obtainStyledAttributes(attributeSet, R.styleable.DynamicScoreView)
-            progress = typeArray.getInt(R.styleable.DynamicScoreView_progress, 0)
-            max = typeArray.getInt(R.styleable.DynamicScoreView_max, 0)
+            progress = typeArray.getFloat(R.styleable.DynamicScoreView_progress, 0f)
+            max = typeArray.getFloat(R.styleable.DynamicScoreView_max, 0f)
             startColor = typeArray.getColor(R.styleable.DynamicScoreView_startColor, Color.GRAY)
             endColor = typeArray.getColor(R.styleable.DynamicScoreView_endColor, Color.GRAY)
             defaultColor = typeArray.getColor(R.styleable.DynamicScoreView_defaultColor, Color.GRAY)
@@ -62,6 +62,7 @@ class DynamicScoreView : View {
             chartWidth =
                 typeArray.getDimensionPixelSize(R.styleable.DynamicScoreView_chartWidth, 5)
                     .toFloat()
+            typeArray.recycle()
         }
 
         paintText.color = textColor
@@ -83,7 +84,7 @@ class DynamicScoreView : View {
 //        }
         val textX = width * 0.5f - paintText.measureText(text) * 0.5f
         val textH = px2dp(paintText.descent() - paintText.ascent())
-        if (progress == 0) {
+        if (progress == 0f) {
             canvas?.apply {
                 drawText(text, textX, height - textH - textPadding, paintText)
             }
@@ -140,7 +141,7 @@ class DynamicScoreView : View {
 
     }
 
-    fun setText(text: String, progress: Int, max: Int, current: Boolean) {
+    fun setText(text: String, progress: Float, max: Float, current: Boolean) {
         this.text = text
         this.progress = if (progress > max) max else progress
         this.max = max
